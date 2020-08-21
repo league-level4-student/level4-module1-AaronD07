@@ -2,14 +2,16 @@ package _01_Custom_ArrayList;
 
 @SuppressWarnings("unchecked")
 
-public class ArrayList <T>{
-	
+public class ArrayList <T> {
+	T[] i;
 	public ArrayList() {
+		i = (T[]) new Object[1];
 	}
 	
 	public T get(int loc) throws IndexOutOfBoundsException {
 		
-		return null;
+		
+		return i[loc];
 	}
 	
 	public void add(T val) {
