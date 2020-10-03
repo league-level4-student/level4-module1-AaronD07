@@ -31,8 +31,11 @@ public class ArrayList <T> {
 		for(int i=0; i<list.length; i++) {
 			newList[i]=list[i];
 		}
+		newList[newList.length -1]=newList[newList.length -2];
+		newList[newList.length -2]=newList[newList.length -3];
 		newList[loc]=val;
 		list = newList;
+	
 	}
 	
 	public void set(int loc, T val) throws IndexOutOfBoundsException {
@@ -50,13 +53,16 @@ public class ArrayList <T> {
 		for(int i=0; i<list.length; i++) {
 			if(i==loc) {
 				x=x+1;
+				newList[newList.length -4]= newList[newList.length -3];
+				newList[newList.length -3]= newList[newList.length -2];
+				newList[newList.length -2]= newList[newList.length -1];
+				
 			}
-			else if(x==0) {
-			newList[i]=list[i];
-		}
 			else if(x==1) {
-				newList[i-1]=list[i-1];
-			}
+				newList[newList.length -4]= newList[newList.length -3];
+				newList[newList.length -3]= newList[newList.length -2];
+		}
+			
 			list = newList;
 			
 		}

@@ -23,7 +23,7 @@ public class CustomButtonOptionPanes {
 			System.out.println("Congrats it's the worst day of the week");
 			break;
 		case "Tuesday": 
-			System.out.println("Only a few more days of school");
+			System.out.println("Stonks");
 			break;
 		case "Wednesday": 
 			System.out.println("It's the middle of the week XD");
@@ -46,4 +46,3 @@ public class CustomButtonOptionPanes {
 		//use a switch statement to do something cool for each option
 		
 	}
-}
