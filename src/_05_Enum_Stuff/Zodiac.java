@@ -1,5 +1,8 @@
 package _05_Enum_Stuff;
 
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import _04_Intro_To_Enums.IntroToEnums.DataTypes;
@@ -9,12 +12,12 @@ public enum Zodiacs {
 	ARIES, TAURUS, GEMINI, CANCER, LEO, VIRGO, 
 	LIBRA, SCORPIO, SAGITTARIUS, CAPRICORN, AQUARIUS, PISCES
 }
-int input = JOptionPane.showOptionDialog(null, "Choose a day of the week", "Custom Buttons", 0, -1, null, Zodiacs, 0);
 
-String choice = Zodiacs[input];
 
 public static void main(String[] args) {
-	Zodiacs data = Zodiacs.VIRGO;
+
+
+	Zodiacs data = Zodiacs.GEMINI;
 
 switch(data) {
 case ARIES:
