@@ -130,7 +130,12 @@ timer.start();
 		break;
 		case 40:
 			snake.setDirection(Direction.DOWN);
+			break;
+		case 32:
+			snake.feed();
+			break;
 		}
+		
 		// if an arrow key is pressed, set the snake's 
 		// direction accordingly
 		
@@ -140,7 +145,10 @@ timer.start();
 
 	private void setFoodLocation() {
 		//1. Create a new Location object that is set to a random location
-		
+		Random rnd = new Random();
+		Location location = new Location(rnd.nextInt(), rnd.nextInt());
+		foodLocation=location;
+		snake.isLocationOnSnake(foodLocation);
 		//2. set the foodLocation variable equal to the Location object you just created.
 		//   use the snake's isLocationOnSnake method to make sure you don't put the food on the snake
 		
@@ -149,16 +157,27 @@ timer.start();
 	private void gameOver() {
 		
 		//1. stop the timer
-		
+		timer.stop();
 		//2. tell the user their snake is dead
-		
+		System.out.println("Yikes, your snake is dead");
 		//3. ask them if they want to play again.
-		
+		String again = JOptionPane.showInputDialog("Do you want to play again");
 		//4. if they want to play again
 		//   reset the snake and the food and start the timer
 		//   else, exit the game
+		switch(again) {
+		case "Yes":
+			Location location = new Location(WIDTH/2, HEIGHT/2);
+			snake.reset(location);
+			setFoodLocation();
+			timer.start();
 		
+	
+			
+			
+		}
 	}
+
 
 	@Override
 	public void keyReleased(KeyEvent e) {
@@ -168,13 +187,24 @@ timer.start();
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		//1. update the snake
-
+snake.update();
+Location loc = new Location(WINDOW_WIDTH, WINDOW_HEIGHT);
 		//2. if the snake is colliding with its own body 
 		//   or if the snake is out of bounds, call gameOver
-
+if(snake.isHeadCollidingWithBody()==true) {
+	gameOver();
+}
+else if(snake.getHeadLocation()==loc) {
+	gameOver();
+}
+else if(snake.getHeadLocation()==foodLocation) {
+	snake.feed();
+	setFoodLocation();
+}
 		//3. if the location of the head is equal to the location of the food,
 		// 	 feed the snake and set the food location
 
 		//4. call panel.repaint();
+panel.repaint();
 	}
 }
