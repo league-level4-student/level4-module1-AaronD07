@@ -57,7 +57,7 @@ public class Snake {
 		//2. Iterate through the SnakeSegments in reverse order
 		//2a. Update each snake segment to the location of the segment 
 		//    in front of it.
-		for(int i=snake.size(); i>0; i--) {
+		for(int i=snake.size()-1; i>0; i--) {
 			snake.get(i).setLocation(snake.get(i-1).getLocation());
 			
 		}
