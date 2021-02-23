@@ -25,6 +25,7 @@ public class Snake {
 
 	public void feed() {
 		//1. add a new SnakeSegment object to the snake
+		
 		snake.add(new SnakeSegment(snake.get(0).getLocation(), BODY_SIZE));
 	}
 
@@ -113,6 +114,7 @@ public class Snake {
 	}
 	
 	public boolean isHeadCollidingWithBody() {
+	
 		//1. complete the method so it returns true if the head is located
 		//   in the same location as any other body segment
 		for(int i=0;i<snake.size(); i++) {
